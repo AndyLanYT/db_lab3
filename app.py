@@ -8,7 +8,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://fqhbiflzcinskf:84924c44a009f
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-db.create_all()
+db.create_all(app=app)
 
 
 class Article(db.Model):
