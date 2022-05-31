@@ -8,8 +8,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ginhikidxhpnor:ddb23573cd1c5
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-db.create_all(app=app)
-
 
 class Article(db.Model):
     __tablename__ = 'Articles'
