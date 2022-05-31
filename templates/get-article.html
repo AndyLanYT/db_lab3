@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ article.title }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>{{ article.title }}:</h1>
+    
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div>
+                        <p>{{ article.content }}</p>
+                        <a href="/articles/{{ article.id }}/delete" class="btn btn-danger">Delete</a>
+                        <a href="/articles/{{ article.id }}/update" class="btn btn-warning">Update</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if article.comments|length > 0 %}
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Comments:</h2>
+                        {% for comment in article.comments %}
+                        <div>
+                            <a>{{ comment.content }}</a>
+                            <a href="/articles/{{ article.id }}/comments/{{ comment.id }}/delete">Delete</a>
+                            <a href="/articles/{{ article.id }}/comments/{{ comment.id }}/update">Update</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <hr>
+    <h3>Comment</h3>
+    <form action="{{ url_for('create_comment', article_id=article.id) }}" method="POST">
+        <textarea name="content" id="content" class="form-control"></textarea><br>
+        <input type="submit" class="btn btn-warning" value="Comment"><br>
+    </form>
+</div>
+{% endblock %}

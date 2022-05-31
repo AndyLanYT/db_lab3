@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit comment
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Edit comment</h1>
+    <form method="post">
+        <textarea name="content" id="content" class="form-control" placeholder="Input content">{{ comment.content }}</textarea><br>
+        <input type="submit" class="btn btn-warning" value="Update">
+        <a href="/articles/{{ comment.article_id }}"><button type="submit" class="btn btn-secondary">Back</button></a>
+    </form>
+</div>
+{% endblock %}
