@@ -84,6 +84,9 @@ def create_article():
 def get_article(id):
     article = Article.query.filter_by(id=id).first()
 
+    if not article:
+        return 'Object not found!!'
+
     return render_template('get-article.html', article=article)
 
 
