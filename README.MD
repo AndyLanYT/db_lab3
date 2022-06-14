@@ -16,7 +16,7 @@ https://lanovenko-db-lab3.herokuapp.com/
 10. Відправити зміни у віддалений репозиторій:
 `git add .`
 `git commit -m "Initial commit"`
-`git push проекта на GitHub`
+`git push` проекта на GitHub
 11. Відправити гілку `main` на сервер heroku: `git push heroku main`
 12. Запустити Python консоль: `heroku run python`
 13. Створити сутності в БД: `from app import db`, `db.ceate_all()`, `exit()`
